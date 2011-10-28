@@ -1,0 +1,54 @@
+/* 
+    Document   : stylesheet
+    Created on : 29-oct-2010, 13:39:18
+    Author     : Arango
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS3/
+*/
+
+body 
+{
+    margin: 0px;
+}
+
+.container
+{
+    width: 920px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+}
+
+.page-header 
+{
+    background: whiteSmoke;
+    margin: -20px -20px 20px;
+    padding: 15px 20px 0 20px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+}
+
+.clear
+{
+    clear: both;
+}
+.separador_x
+{
+    width: 10px;
+    height: 10px;
+    float: left;
+}
+.separador_y
+{
+    width: 10px;
+    height: 10px;
+}

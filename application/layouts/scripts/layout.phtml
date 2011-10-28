@@ -1,0 +1,40 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headMeta(); ?>
+        
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/stylesheet.css')); ?>
+        
+        <?php echo $this->headScript()->appendFile($this->baseUrl('js/resources/jquery.tools.min.js')); ?>
+
+    </head>
+
+<body>
+
+
+
+    <!--S E S S I O N-->
+    <?php
+        $usuarioLogeado = new Zend_Session_Namespace("usuarioLogeado");
+        
+    ?>
+
+
+
+        <!--COLUMNA DE CONTENIDOS-->
+        <div class="colum_medio">
+                <?php
+                    echo $this->layout()->content;
+                ?>
+
+        </div>
+
+
+    <!--FOOTER-->
+    <?php echo $this->render('footer.phtml'); ?>
+
+    
+</body>
+
+</html>
