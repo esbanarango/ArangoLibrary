@@ -4,7 +4,7 @@
         <?php echo $this->headTitle(); ?>
         <?php echo $this->headMeta(); ?>
         
-        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('public/css/stylesheet.css')); ?>
+        <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/stylesheet.css')); ?>
 
 
     </head>
@@ -19,6 +19,10 @@
         
     ?>
 
+    <!--H E A D E R-->
+    <?php echo $this->render('header.phtml'); ?>
+    
+    
 
 
         <!--COLUMNA DE CONTENIDOS-->
