@@ -3,41 +3,40 @@
     <head>
         <?php echo $this->headTitle(); ?>
         <?php echo $this->headMeta(); ?>
-        
+
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/stylesheet.css')); ?>
 
 
     </head>
 
-<body>
+    <body>
 
 
 
-    <!--S E S S I O N-->
-    <?php
+        <!--S E S S I O N-->
+        <?php
         $usuarioLogeado = new Zend_Session_Namespace("usuarioLogeado");
-        
-    ?>
+        ?>
 
-    <!--H E A D E R-->
-    <?php echo $this->render('header.phtml'); ?>
-    
-    
-
+        <!--H E A D E R-->
+        <div>
+            <?php echo $this->render('header.phtml'); ?>
+        </div>
 
         <!--COLUMNA DE CONTENIDOS-->
         <div class="colum_medio">
-                <?php
-                    echo $this->layout()->content;
-                ?>
+            <?php
+            echo $this->layout()->content;
+            ?>
 
         </div>
 
 
-    <!--FOOTER-->
-    <?php echo $this->render('footer.phtml'); ?>
+        <!--FOOTER-->
+        <div>
+            <?php echo $this->render('footer.phtml'); ?>
+        </div>
 
-    
-</body>
+    </body>
 
 </html>
