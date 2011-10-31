@@ -11,14 +11,14 @@
  * @author Arango
  */
 // Datos de las ciudades
-class Application_Model_Location_Country extends Zend_Db_Table_Abstract
+class Application_Model_Location_City extends Zend_Db_Table_Abstract
 {
     protected $_name = 'list_location_city';
 
     //obtiene los tipos de genero almacenados en la tabla list_gender
     public static function getCities($estado)
     {
-        $tipo = new Application_Model_Location_Country();
+        $tipo = new Application_Model_Location_City();
 
         $order  = array('name ASC');
         $select = $tipo->select();
@@ -34,7 +34,7 @@ class Application_Model_Location_Country extends Zend_Db_Table_Abstract
     //Obtener la info de una ciudad
     public static function infoCity($idCity)
     {
-        $ciudad = new Application_Model_Location_Country();
+        $ciudad = new Application_Model_Location_City();
 
         $select = $ciudad->select();
 
