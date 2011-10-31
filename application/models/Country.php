@@ -17,7 +17,7 @@ class Application_Model_Country extends Zend_Db_Table_Abstract
     //obtiene los tipos de genero almacenados en la tabla list_gender
     public static function getCountries()
     {
-        $tipo = new Country();
+        $tipo = new Application_Model_Country();
 
         $order  = array('name ASC');
         $select = $tipo->select();
