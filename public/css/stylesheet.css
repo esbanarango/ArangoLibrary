@@ -11,47 +11,10 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS3/
 */
 
-
-@font-face {
-    font-family: 'JUICEBold';
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_bold-webfont.eot');
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_bold-webfont.woff') format('woff'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_bold-webfont.ttf') format('truetype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_bold-webfont.svg#JUICEBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'JUICEItalic';
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_italic-webfont.eot');
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_italic-webfont.woff') format('woff'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_italic-webfont.ttf') format('truetype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_italic-webfont.svg#JUICEItalic') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'JUICERegular';
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_regular-webfont.eot');
-    src: url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_regular-webfont.woff') format('woff'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_regular-webfont.ttf') format('truetype'),
-         url('/arangolibrary.phpfogapp.com/public/fonts/juice/juice_regular-webfont.svg#JUICERegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 body 
 {
     margin: 0;
-    /*background: #e8f6f1 url(/arangolibrary.phpfogapp.com/public/Images/bg-gradient.png) repeat-x;*/
+    
 }
 
 .container
@@ -67,28 +30,63 @@ body
 {
     width: 1100px;
     height: auto;
-    margin: 0 auto;
+    margin: 0px auto;
+    margin-left: 130px;
     text-align: left;
     border-radius: 0px 0px 50px 8px;
     -moz-border-radius: 0px 0px 50px 8px;
     -webkit-border-radius: 0px 0px 50px 8px;
     background: #FEFED1 url(/arangolibrary.phpfogapp.com/public/Images/bg-texture-light.png) repeat;
-   /* background: url(/arangolibrary.phpfogapp.com/public/Images/alejoLeyendo.png) no-repeat center right;
+     text-shadow:0px 1px 2px rgba(37, 33, 35, 0.9);
+    -moz-text-shadow:0px 1px 2px rgba(37, 33, 35, 0.9);
+    -webkit-text-shadow:0px 1px 2px rgba(37, 33, 35, 0.9);
+    /*background: url(/arangolibrary.phpfogapp.com/public/Images/alejoLeyendo.png) no-repeat center right;
     background: url(/arangolibrary.phpfogapp.com/public/Images/alejoLeyendo.png) no-repeat center right,
         url(/arangolibrary.phpfogapp.com/public/Images/bg-texture-light.png) repeat;*/
 }
-.page-header header h1
+.page-header h1
 {
-    color: darkorange;
-    font-size: 80px;
-    font-family: JUICERegular;
+    margin: 0;
+    padding-left: 20px;
+    padding-top: 10px;
+    color: #DC692E;
+    font-size: 130px;
+    font-family: ForelleRegular, helvetica;
 }
 
-.page-header header h2
+.page-header h2
 {
-    color: darkorange;
-    font-size: 49px;
-    font-family: JUICERegular;
+    margin: 0;
+    color: #DC692E;
+    font-size: 99px;
+    font-family: ForelleRegular, helvetica;
+}
+
+
+.izq-header{
+    padding: 10px;
+    width: 90px;
+    height: 30px;
+    float: left; 
+    color: #fff;
+     background-color: #85B401;
+    /* mozila code */
+background-image: -moz-linear-gradient(left, right,from(#A1D004),to(#6B9A00));
+
+   	/* webkit code */
+background-image: -webkit-gradient(linear, left top, left bottom,
+                   	 	  color-stop(0.00, #A1D004),   
+                  		  color-stop(1.00, #6B9A00));
+
+   	/* IE code - note GradientType=0 means vertical */
+filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',
+                startColorstr=#A1D004, 
+               endColorstr=#6B9A00, 
+               GradientType=0);
+    
+    border-radius: 0px 0px 50px 0px;
+    -moz-border-radius: 0px 0px 50px 0px;
+    -webkit-border-radius: 0px 0px 50px 0px;
 }
 
 .page-footer
@@ -117,7 +115,7 @@ body
 
 .imagen_alejo{
     
-     padding-top: 50px;
+     padding-top: 20px;
      float: right; 
      text-align: right;
      opacity:0.6;
@@ -129,8 +127,46 @@ body
 
 .imagen_alejo:hover{
     
-     padding-top: 50px;
+     /*padding-top: 50px;
      float: right; 
-     text-align: right;
+     text-align: right;*/
      opacity:0.9
+}
+
+.section{
+    background: rgba(200, 208, 208, 0.3);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    margin: 0 auto;
+    position: relative;
+    width: 920px;
+    height: 500px;
+    z-index: 1;
+    
+}
+
+.blancoArriba{
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-border-radius: 0px 0px 0px 4px;
+    -moz-border-radius: 0px 0px 0px 4px;
+    -o-border-radius: 0px 0px 0px 4px;
+    border-radius: 0px 0px 0px 4px;
+    float: right; 
+    width: 190px;
+    height: 190px;
+    padding-left:10px;
+    padding-bottom: 10px;
+    
+}
+
+.adentroBlanco{
+    -webkit-border-radius: 0px 2px 0px 4px;
+    -moz-border-radius: 0px 2px 0px 4px;
+    -o-border-radius: 0px 2px 0px 4px;
+    border-radius: 0px 2px 0px 4px;
+    width: 190px;
+    height: 190px;
+    background-color: rgba(37, 33, 35, 0.9);
 }
