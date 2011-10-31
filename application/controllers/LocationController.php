@@ -19,7 +19,7 @@ class LocationController extends Zend_Controller_Action
         $seleccion = $this->getRequest()->getParam('seleccion'); //Para edición, este es el valor seleccionado actualmente
         $this->view->seleccion = $seleccion;
 
-        $tipos = new Country();
+        $tipos = new Application_Model_Country();
         $this->view->lista = $tipos->getCountries();
 
         if($obligatorio != 0)
