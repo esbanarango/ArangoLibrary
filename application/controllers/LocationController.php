@@ -19,7 +19,7 @@ class LocationController extends Zend_Controller_Action
         $seleccion = $this->getRequest()->getParam('seleccion'); //Para edición, este es el valor seleccionado actualmente
         $this->view->seleccion = $seleccion;
 
-        $tipos = new Application_Model_Country();
+        $tipos = new Application_Model_Location_Country();
         $this->view->lista = $tipos->getCountries();
 
         if($obligatorio != 0)
@@ -37,7 +37,7 @@ class LocationController extends Zend_Controller_Action
         $seleccion = $this->getRequest()->getParam('seleccion'); //Para edición, este es el valor seleccionado actualmente
         $this->view->seleccion = $seleccion;
 
-        $tipos = new State();
+        $tipos = new Application_Model_Location_State();
         $this->view->lista = $tipos->getStates($pais);
 
         if($obligatorio != 0)
@@ -55,7 +55,7 @@ class LocationController extends Zend_Controller_Action
         $seleccion = $this->getRequest()->getParam('seleccion'); //Para edición, este es el valor seleccionado actualmente
         $this->view->seleccion = $seleccion;
 
-        $tipos = new City();
+        $tipos = new Application_Model_Location_City();
         $this->view->lista = $tipos->getCities($estado);
 
         if($obligatorio != 0)
