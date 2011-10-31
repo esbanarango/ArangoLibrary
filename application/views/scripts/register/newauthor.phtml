@@ -1,0 +1,25 @@
+
+                        <div id="div_pais">
+                            <select id="pais" name="Pais" class="select">
+                                <option value="0" disabled selected>Selecciona...</option>
+                            </select> *
+                        </div>
+                        <script type="text/javascript">
+                                //la funcion llamada esta en el js cargar_contenido - carpeta public
+                                 cargarContenido('<?php echo $this->url(array('controller'=>'location', 'action'=>'country', 'obligatorio'=>'1'), null, true)?>', 'div_pais')
+                         </script>
+                        <div id="div_estado">
+                            <select id="estado" name="Estado" class="select">
+                                <option value="0" disabled selected >Selecciona...</option>
+                            </select> *
+                        </div>
+
+                        <div id="div_ciudad">
+                            <select id="ciudad" name="Ciudad" class="select">
+                                <option value="0" disabled selected>Selecciona...</option>
+                            </select> *
+                        </div>
+                         
+                         <script type="text/javascript" >
+                             $(".select").chosen()
+                        </script>

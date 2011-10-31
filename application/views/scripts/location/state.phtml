@@ -1,0 +1,32 @@
+<select class="select" name='Estado' id='estado' 
+        onchange="cargarLocacion('<?php echo $this->url(array('controller'=>'location', 'action'=>'city'), null, true)?>', 
+                                 'div_ciudad', 
+                                 this.value,
+                                 1,
+                                 0
+                                )
+                  ">
+    <option value='0' disabled="">Selecciona...</option>
+<?php
+    foreach($this->lista as $estado)
+    {
+        if($this->seleccion == $estado->idList_location_state)
+        {
+        ?>
+            <option value='<?php echo $estado->idList_location_state?>' selected><?php echo $estado->name?></option>
+        <?php
+        }
+        else
+        {
+        ?>
+            <option value='<?php echo $estado->idList_location_state?>'><?php echo $estado->name?></option>
+        <?php
+        }
+    }
+?>
+</select>
+    <?php echo $this->obligatorio;?>
+    
+    <script type="text/javascript" >
+                             $("#estado").chosen()
+                        </script>

@@ -5,7 +5,16 @@
         <?php echo $this->headMeta(); ?>
 
         <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/fonts.css'))
-                                    ->appendStylesheet($this->baseUrl('css/stylesheet.css')); ?>
+                                    ->appendStylesheet($this->baseUrl('css/stylesheet.css'))
+                                    ->appendStylesheet($this->baseUrl('css/chosen.css'));?>
+        
+        <?php echo $this->headScript()->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
+                                      ->appendFile($this->baseUrl('js/general/ajax.js'))
+                                      ->appendFile($this->baseUrl('js/general/funciones.js'))
+                                      ->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
+                                      ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'));  
+        
+        ?>
 
 
     </head>

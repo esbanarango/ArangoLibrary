@@ -1,0 +1,33 @@
+<select class="select" name='Pais' id='pais' 
+        onchange="cargarLocacion(
+                                    '<?php echo $this->url(array('controller'=>'location', 'action'=>'state'), null, true)?>', 
+                                    'div_estado',
+                                    this.value,
+                                    1,
+                                    0
+                                )
+               ">
+    <option value='0' disabled="">Selecciona...</option>
+<?php
+    foreach($this->lista as $pais)
+    {
+        if($this->seleccion == $pais->idList_location_country)
+        {
+        ?>
+            <option value='<?php echo $pais->idList_location_country?>' selected><?php echo $pais->name?></option>
+        <?php
+        }
+        else
+        {
+        ?>
+            <option value='<?php echo $pais->idList_location_country?>'><?php echo $pais->name?></option>
+        <?php
+        }
+    }
+?>
+</select>
+    <?php echo $this->obligatorio; ?>
+<script type="text/javascript" >
+                             $("#pais").chosen();
+                        </script>
+    

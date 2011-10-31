@@ -1,0 +1,25 @@
+<select class="select" name='Ciudad' id='ciudad' >
+    <option value='0' disabled="">Selecciona...</option>
+<?php
+    foreach($this->lista as $ciudad)
+    {
+        if($this->seleccion == $ciudad->idList_location_city)
+        {
+        ?>
+            <option value='<?php echo $ciudad->idList_location_city?>' selected><?php echo $ciudad->name?></option>
+        <?php
+        }
+        else
+        {
+        ?>
+            <option value='<?php echo $ciudad->idList_location_city?>'><?php echo $ciudad->name?></option>
+        <?php
+        }
+    }
+?>
+</select>
+    <?php echo $this->obligatorio;?>
+    
+    <script type="text/javascript" >
+                             $("#ciudad").chosen();
+                        </script>
