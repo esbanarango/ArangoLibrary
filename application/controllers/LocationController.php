@@ -3,7 +3,7 @@
  * DATOS AGREGADOS PARA SELECCIÓN DE LOCACIÓN
  */
 //Controller para las vistas en select
-require_once '/../../models/Location.php';
+//require_once '/../models/Location.php';
 class LocationController extends Zend_Controller_Action
 {
     public function init()
