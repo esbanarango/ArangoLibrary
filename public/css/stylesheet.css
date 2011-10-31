@@ -65,7 +65,8 @@ body
 
 .izq-header{
     padding: 10px;
-    width: 90px;
+    padding-left: 3px;
+    width: 100px;
     height: 30px;
     float: left; 
     color: #fff;
