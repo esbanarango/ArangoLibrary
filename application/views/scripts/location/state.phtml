@@ -1,4 +1,4 @@
-<select class="select" name='Estado' id='estado' 
+<select data-placeholder="Estado" style="width: 117px;"  class="select" name='Estado' id='estado' 
         onchange="cargarLocacion('<?php echo $this->url(array('controller'=>'location', 'action'=>'city'), null, true)?>', 
                                  'div_ciudad', 
                                  this.value,
@@ -6,7 +6,7 @@
                                  0
                                 )
                   ">
-    <option value='0' disabled="">Selecciona...</option>
+    <option value='0' disabled="">Estado</option>
 <?php
     foreach($this->lista as $estado)
     {
@@ -25,7 +25,7 @@
     }
 ?>
 </select>
-    <?php echo $this->obligatorio;?>
+    <?php //echo $this->obligatorio;?>
     
     <script type="text/javascript" >
                              $("#estado").chosen()

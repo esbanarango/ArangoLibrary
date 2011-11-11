@@ -1,5 +1,5 @@
-<select class="select" name='Ciudad' id='ciudad' >
-    <option value='0' disabled="">Selecciona...</option>
+<select data-placeholder="Ciudad" style="width: 117px;"  class="select" name='Ciudad' id='ciudad' >
+    <option value='0' disabled="">Ciudad</option>
 <?php
     foreach($this->lista as $ciudad)
     {
@@ -18,7 +18,7 @@
     }
 ?>
 </select>
-    <?php echo $this->obligatorio;?>
+    <?php //echo $this->obligatorio;?>
     
     <script type="text/javascript" >
                              $("#ciudad").chosen();

@@ -58,3 +58,15 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'EfonRegular';
+    src: url('/public/fonts/efon/EFON-webfont.eot');
+    src: url('/public/fonts/efon/EFON-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/public/fonts/efon/EFON-webfont.woff') format('woff'),
+         url('/public/fonts/efon/EFON-webfont.ttf') format('truetype'),
+         url('/public/fonts/efon/EFON-webfont.svg#EfonRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
