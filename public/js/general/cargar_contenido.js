@@ -12,7 +12,7 @@ function cargarContenido(pagina, destino)
     ajax.onreadystatechange=function() {
         if(ajax.readyState==1)
         {
-            contenedor.innerHTML = '<img src = "/arangolibrary.phpfogapp.com/public/Images/layout/loading_small.gif" alt ="Cargando"/>';
+            contenedor.innerHTML = '<img src = "/public/Images/layout/loading_small.gif" alt ="Cargando"/>';
         }
         else if (ajax.readyState==4)
         {
