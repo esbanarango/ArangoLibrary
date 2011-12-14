@@ -34,7 +34,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     {
         $this->bootstrap('view');
         $view = $this->getResource('view');
-        $view->addHelperPath('View/Helper', 'E_View_Helper');
+        $view->addHelperPath('View/Helper');
 
         Zend_Session::start();
     }

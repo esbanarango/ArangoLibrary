@@ -10,17 +10,13 @@
  *
  * @author Arango
  */
-class RegisterController extends Zend_Controller_Action {
+class AuthorController extends Zend_Controller_Action {
 
     public function init() {
         /* Initialize action controller here */
     }
 
-    public function newbookAction() {
-        
-    }
-
-    public function newauthorAction() {
+    public function newAction() {
         
     }
 
@@ -50,11 +46,6 @@ class RegisterController extends Zend_Controller_Action {
             echo 'mal|-estado-|' .'Error al inserter el autor';
         }
     }
-
-    public function neweditorialAction() {
-        
-    }
-
 }
 
 ?>

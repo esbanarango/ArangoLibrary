@@ -9,14 +9,15 @@
                 ->appendStylesheet($this->baseUrl('css/stylesheet.css'))
                 ->appendStylesheet($this->baseUrl('css/chosen.css'));
         ?>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <?php
         echo $this->headScript()->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
                 ->appendFile($this->baseUrl('js/general/ajax.js'))
                 ->appendFile($this->baseUrl('js/general/funciones.js'))
                 ->appendFile($this->baseUrl('js/general/app.js'))
                 ->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
-                ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'));
+                ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'))
+                ->appendFile($this->baseUrl('js/resources/jquery.form.js'));
         ?>
 
         <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'>

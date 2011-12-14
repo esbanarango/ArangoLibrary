@@ -1,0 +1,135 @@
+<header class="titulo_centro">
+    <label class="titulo">Nuevo Autor</label>
+</header>
+<div class="clear"></div>
+<div class="container_form">
+    <div class="information_form">
+        <article>
+            Información para el ingreso de un nuevo autor.
+        </article>
+    </div>
+    <div class="container_form_data">
+        <form name="newAuthorForm" action="" onsubmit="return newAuthor('<?php echo $this->url(array('controller' => 'register', 'action' => 'newauthorget'), null, true); ?>')">
+            <div class="form_auth_left">
+                <table cellpadding="1px" cellspacing="10px"  style="padding-left: 5px;">
+                    <tr>
+                        <td>
+                            <input type="text" id="name" required style="width: 190px;" placeholder="Nombre" />
+                        </td>
+                        <td>
+                            <input type="text" id="last_name" required style="width: 190px;" placeholder="Apellido" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <textarea id="bio" style="padding-top: 10px; width: 400px; height: 90px;" placeholder="Biografía"></textarea>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea id="edu" id="education" style="padding-top: 10px; width: 400px; height: 70px;" placeholder="Education"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  colspan="3" style="width: 150px;">
+                            <div style="width: 400px;">
+                                <div id="div_pais" style="float: left; padding-right: 5px;">
+                                    <select data-placeholder="Pais" id="pais" name="Pais" class="select">
+                                    </select>
+                                </div>
+                                <script type="text/javascript">
+                                    //la funcion llamada esta en el js cargar_contenido - carpeta public
+                                    cargarContenido('<?php echo $this->url(array('controller' => 'location', 'action' => 'country', 'obligatorio' => '0'), null, true) ?>', 'div_pais')
+                                </script>
+                                <div id="div_estado" style="float: left; padding-right:5px;">
+                                    <select data-placeholder="Estado"  id="estado" name="Estado" style="width: 116px;" class="select">
+                                    </select>
+                                </div>
+                                <div id="div_ciudad"  style="float: left;">
+                                    <select data-placeholder="Ciudad" id="ciudad" style="width: 116px;" name="Ciudad" class="select">>
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  colspan="3" style="width: 150px;">
+                            <div id="pickerDate" style="width: 400px;">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; padding-top: 5px; padding-bottom: 5px; width: 400px; ">
+                            <div style="float: right; padding-right: 100px;">
+                                <input type="submit" value="Ingresar" class="button_submit"/>     
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        <div class="form_auth_right">
+            <div class="upload_picture"></div>
+            <div class="uploadButtom">
+                <label>Subir Foto</label>
+                <form id="imageform" method="post" enctype="multipart/form-data" action='<?php echo $this->url(array('controller' => 'upload', 'action' => 'imageupload'), null, true); ?>'>
+                    <input type="file" class="uploadInput" id="photoimg" name="photoimg" style="cursor: pointer;">
+                </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+    <!--
+    <div id="listAuthors" class="auth_section_right">
+        <section class="gallitoCorners">
+            <div class="authosList">
+                <ul>
+                    <li>
+                        <label>Nombre:</label>afasdfasdf
+                    </li>
+                    <li>
+                        <label>País:</label>asfsadfsadf
+                    </li>
+                    <li>
+                        <label>Títulos:</label>asdfsdfsadf
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+    </div>
+    -->
+
+    <script type="text/javascript" >
+            
+        $(document).ready(function()
+        {
+            $("#pickerDate").birthdaypicker({});
+            $("select").chosen();
+            
+            //Fixing the style
+            $("#pickerDate .chzn-container").eq(0).css("padding-right","7px");  
+            $("#pickerDate .chzn-container").eq(2).css("padding-left","7px"); 
+            
+            $('#photoimg').live('change', function()
+            {
+                $("#preview").html('');
+                $("#preview").html('Cargando...');
+                $("#imageform").ajaxForm(
+                {
+                    target: '.upload_picture'
+                }).submit();
+            });
+        });
+            
+    </script>
+
+
+
+
+
+</div>

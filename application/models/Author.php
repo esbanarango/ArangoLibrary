@@ -5,10 +5,9 @@ class  Application_Model_Author extends Zend_Db_Table_Abstract
 {
     protected $_name = 'author';
 
-    public static function addAuthor($city,$idImage,$name,$last_name,$birth_date,$death_date,$bio,
+    public function addAuthor($city,$idImage,$name,$last_name,$birth_date,$death_date,$bio,
             $education)
     {
-        $author = new Application_Model_Author();
 
         $data = array(
             'city' => $city,
@@ -20,13 +19,12 @@ class  Application_Model_Author extends Zend_Db_Table_Abstract
             'bio' => $bio,
             'education' => $education
             );
-        $author->insert($data);
+        return $this->insert($data);
     }
     
-    public static function editAuthor($idAuthor,$city,$idImage,$name,$last_name,$birth_date,$death_date,
+    public function editAuthor($idAuthor,$city,$idImage,$name,$last_name,$birth_date,$death_date,
             $bio,$education)
     {
-        $author = new Application_Model_Author();
 
         $data = array(
             'city' => $city,
@@ -39,24 +37,21 @@ class  Application_Model_Author extends Zend_Db_Table_Abstract
             'education' => $education
             );
 
-        $where = $author->getAdapter()->quoteInto('idAuthor = ?', $idAuthor);
-        $total = $author->update($data, $where);
+        $where = $this->getAdapter()->quoteInto('idAuthor = ?', $idAuthor);
+        $total = $this->update($data, $where);
 
         return $total;
         
     }
     
         
-    public static function getAllAuthors($idOffer) 
+    public function getAllAuthors() 
     {
-        $author = new Application_Model_Author();
         
-        $select = $author->select();
-
-        $select->from($author);
-        
+        $select = $this->select();
+        $select->from($this);
         
         //echo $select;
-        return $rows = $author->fetchAll($select);
+        return $rows = $this->fetchAll($select);
     }
 }

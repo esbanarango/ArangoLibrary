@@ -1,8 +1,12 @@
-
+$(document).ready(function() {
+    
+    $(".uploadButtom").click(function(){
+        //$('#photoimg').click();
+    });
+});
 
 function newAuthor(urlAction)
 {
-    
     /**** Validations ****/
     
     if(!validationNewAuthor()){return false;}
@@ -28,10 +32,12 @@ function newAuthor(urlAction)
             var respuesta = data.split('|-estado-|');
             if(respuesta[0] == 'mal')
             {
+                alert(respuesta[1]);
             }
             else
-            {  
-        }
+            {
+                alert("Bien "+respuesta[1]);
+            }  
         }
     });
     return false;
@@ -46,6 +52,12 @@ function validationNewAuthor(){
     
     }else if($("#last_name").val() == ""){
         $("#last_name").addClass("errorInput");
+        return false;
+    }else if($("#estado").val() == null){
+        $("#estado_chzn").addClass("errorInput");
+        return false;
+    }else if($("#ciudad").val() == null){
+        $("#ciudad_chzn").addClass("errorInput");
         return false;
     }
     
