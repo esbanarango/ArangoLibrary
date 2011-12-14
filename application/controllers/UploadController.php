@@ -30,7 +30,7 @@ class UploadController extends Zend_Controller_Action {
                         $tmp = $_FILES['photoimg']['tmp_name'];
                         if (move_uploaded_file($tmp, $path . $actual_image_name)) {;                    
                             $this->view->thumbnails($path . $actual_image_name,$path ."miniatura/". $actual_image_name);
-                            echo "<img src='/arangolibrary.phpfogapp.com/public/Images/tempsUpload/miniatura/" . $actual_image_name . "'  class='preview'>";
+                            echo "<img src='/public/Images/tempsUpload/miniatura/" . $actual_image_name . "'  class='preview'>";
                         }
                         else
                             echo "failed";
