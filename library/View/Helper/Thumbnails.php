@@ -7,7 +7,7 @@ class Zend_View_Helper_Thumbnails extends Zend_View_Helper_Abstract {
     private $ancho;
     private $alto;
 
-    public function thumbnails($archi, $archinue, $ancho=135, $alto=133){
+    public function thumbnails($archi, $archinue, $ancho=140, $alto=137){
         $this->archi = $archi;
         $vec = explode('.', $archi);
         $this->extension = strtoupper($vec[sizeof($vec) - 1]);

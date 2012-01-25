@@ -16,43 +16,81 @@ class RegisterController extends Zend_Controller_Action {
         /* Initialize action controller here */
     }
 
-    public function newbookAction() {
-        
-    }
+    public function loginAction() {
 
-    public function newauthorAction() {
-        
-    }
+        if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('view') != "view")) {
+            $this->_helper->layout->disableLayout();
+            $this->_helper->viewRenderer->setNoRender(true);
 
-    public function newauthorgetAction() {
-        $this->_helper->layout->disableLayout();
-        $this->_helper->viewRenderer->setNoRender(true);
-        
-        $name = $this->view->funciones()->clean_post($this->getRequest()->getParam('name'));
-        $last_name = $this->view->funciones()->clean_post($this->getRequest()->getParam('last_name'));
-        $bio = $this->view->funciones()->clean_post($this->getRequest()->getParam('bio'));
-        $education = $this->view->funciones()->clean_post($this->getRequest()->getParam('edu'));
-        $city = $this->view->funciones()->clean_post($this->getRequest()->getParam('ciudad'));
-        
-        $country = $this->view->funciones()->clean_post($this->getRequest()->getParam('pais'));
-        $state = $this->view->funciones()->clean_post($this->getRequest()->getParam('estado'));
-        
-        $null = new Zend_Db_Expr("NULL");
+            $user = $this->view->funciones()->clean_post($this->getRequest()->getParam('name'));
+            $pass = md5($this->view->funciones()->clean_post($this->getRequest()->getParam('password')));
 
-        
-        $authorModel = new Application_Model_Author();
-        
-        $idAuthor = $authorModel->addAuthor($city, $null, $name, $last_name, $null, $null, $bio, $education);
-        
-        if ($idAuthor) {
-            echo 'bien|-estado-|'.'Autor insertado correctamente'.$idAuthor;
-        } else {
-            echo 'mal|-estado-|' .'Error al inserter el autor';
+            $userModel = new Application_Model_User();
+            $login = $userModel->checkLogin($user, $pass);
+
+            if (count($login) == 1) {
+                $userModel->updateVisit($login->idUser);
+
+                $personModel = new Application_Model_Person();
+                $person = $personModel->getInfo($login->idUser);
+
+                Zend_Session::start();
+                $userLog = new Zend_Session_Namespace("userLog");
+                $userLog->iniciado = "si";
+                $userLog->id = $login->idUser;
+                $userLog->username = $user;
+                $userLog->nombre = $person->name;
+                $userLog->apellido = $person->last_name;
+                $userLog->email = $person->email;
+            } else {
+
+                echo 'mal|-estado-|' . "Mal" . $pass . $login;
+            }
+        }else if($this->getRequest()->getParam('view') == "view"){
+            $this->_helper->layout->disableLayout();
+        }else {
+            $this->_helper->layout->disableLayout();
+            $this->_helper->layout->setLayout('login-layout');
         }
     }
 
-    public function neweditorialAction() {
-        
+    public function logoutAction() {
+        $this->_helper->getHelper("Layout")->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+
+        Zend_Session::destroy(true);
+
+        $this->_redirect(''); //no funciona
+    }
+
+    public function newuserAction() {
+
+        if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('view') != "view")) {
+            
+            
+            
+            
+        }else if($this->getRequest()->getParam('view') == "view"){
+            $this->_helper->layout->disableLayout();
+        }else {
+            $this->_helper->layout->disableLayout();
+            $this->_helper->layout->setLayout('login-layout');
+        }
+    }
+    
+    public function remeberpasswordAction() {
+
+        if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('view') != "view")) {
+            
+            
+            
+            
+        }else if($this->getRequest()->getParam('view') == "view"){
+            $this->_helper->layout->disableLayout();
+        }else {
+            $this->_helper->layout->disableLayout();
+            $this->_helper->layout->setLayout('login-layout');
+        }
     }
 
 }

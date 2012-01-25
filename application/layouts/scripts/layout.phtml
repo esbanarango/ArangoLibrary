@@ -7,25 +7,23 @@
         <?php
         echo $this->headLink()->appendStylesheet($this->baseUrl('css/fonts.css'))
                 ->appendStylesheet($this->baseUrl('css/stylesheet.css'))
+                ->appendStylesheet($this->baseUrl('css/jackedup.css'))
                 ->appendStylesheet($this->baseUrl('css/chosen.css'));
         ?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <?php
-        echo $this->headScript()->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
-                ->appendFile($this->baseUrl('js/general/ajax.js'))
-                ->appendFile($this->baseUrl('js/general/funciones.js'))
-                ->appendFile($this->baseUrl('js/general/app.js'))
-                ->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
+        echo $this->headScript()->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
                 ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'))
-                ->appendFile($this->baseUrl('js/resources/jquery.form.js'));
+                ->appendFile($this->baseUrl('js/resources/jquery.form.js'))
+                ->appendFile($this->baseUrl('js/resources/humane.min.js'))
+                ->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
+                ->appendFile($this->baseUrl('js/general/funciones.js'))
+                ->appendFile($this->baseUrl('js/general/app.js'));
         ?>
 
-        <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'/>
     </head>
-
     <body>
-
-
 
         <!--S E S S I O N-->
         <?php
@@ -50,29 +48,9 @@
             </section>
 
         </div>
-
-
         <!--FOOTER-->
         <div>
             <?php echo $this->render('footer.phtml'); ?>
         </div>
-
-
-        <!-- BODY BORDER -->
-        <div class="edge" id="left_body_border"></div>
-        <div class="edge" id="right_body_border"></div>
-        <div class="edge" id="top_body_border"></div>
-        <div class="edge" id="bottom_body_border"></div>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(function(){
-                    $(".nav_top").click(function(){
-                        $(".edge").fadeToggle();
-                    });
-                });
-            });
-            
-        </script>
     </body>
-
 </html>

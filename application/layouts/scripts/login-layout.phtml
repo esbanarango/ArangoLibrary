@@ -1,0 +1,446 @@
+<html>
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headMeta(); ?>
+
+        <?php
+        echo $this->headLink()->appendStylesheet($this->baseUrl('css/fonts.css'))
+                ->appendStylesheet($this->baseUrl('css/jackedup.css'));
+        ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <?php
+        echo $this->headScript()->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
+                ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'))
+                ->appendFile($this->baseUrl('js/resources/jquery.form.js'))
+                ->appendFile($this->baseUrl('js/resources/humane.min.js'))
+                ->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
+                ->appendFile($this->baseUrl('js/general/funciones.js'))
+                ->appendFile($this->baseUrl('js/general/app.js'));
+        ?>
+
+        <style>
+
+
+            html {
+                height: 100%;
+            }
+            a
+            {
+
+            }
+
+            body
+            {
+
+                height: 100%;
+                margin: 0;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+
+                font: 12px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;    
+                margin: 0;
+                background-color: #d9dee2;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#ebeef2), to(#d9dee2));
+                background-image: -webkit-linear-gradient(top, #ebeef2, #d9dee2);
+                background-image: -moz-linear-gradient(top, #ebeef2, #d9dee2);
+                background-image: -ms-linear-gradient(top, #ebeef2, #d9dee2);
+                background-image: -o-linear-gradient(top, #ebeef2, #d9dee2);
+                background-image: linear-gradient(top, #ebeef2, #d9dee2);    
+            }
+
+            /*--------------------*/
+
+            #form_wrapper
+            {
+                background-color: #fff;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+                background-image: -webkit-linear-gradient(top, #fff, #eee);
+                background-image: -moz-linear-gradient(top, #fff, #eee);
+                background-image: -ms-linear-gradient(top, #fff, #eee);
+                background-image: -o-linear-gradient(top, #fff, #eee);
+                background-image: linear-gradient(top, #fff, #eee);  
+
+                padding: 30px;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                z-index: 0;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;  
+                -webkit-box-shadow:
+                    0 0 2px rgba(0, 0, 0, 0.2),
+                    0 1px 1px rgba(0, 0, 0, .2),
+                    0 3px 0 #fff,
+                    0 4px 0 rgba(0, 0, 0, .2),
+                    0 6px 0 #fff,  
+                    0 7px 0 rgba(0, 0, 0, .2);
+                -moz-box-shadow:
+                    0 0 2px rgba(0, 0, 0, 0.2),  
+                    1px 1px   0 rgba(0,   0,   0,   .1),
+                    3px 3px   0 rgba(255, 255, 255, 1),
+                    4px 4px   0 rgba(0,   0,   0,   .1),
+                    6px 6px   0 rgba(255, 255, 255, 1),  
+                    7px 7px   0 rgba(0,   0,   0,   .1);
+                box-shadow:
+                    0 0 2px rgba(0, 0, 0, 0.2),  
+                    0 1px 1px rgba(0, 0, 0, .2),
+                    0 3px 0 #fff,
+                    0 4px 0 rgba(0, 0, 0, .2),
+                    0 6px 0 #fff,  
+                    0 7px 0 rgba(0, 0, 0, .2);
+            }
+
+            #form_wrapper:before
+            {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                border: 1px dashed #9DA0FE;
+                top: 5px;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+                -moz-box-shadow: 0 0 0 1px #fff;
+                -webkit-box-shadow: 0 0 0 1px #fff;
+                box-shadow: 0 0 0 1px #fff;
+            }
+
+            .login {
+
+                height: 240px;
+                width: 400px;
+                margin: -150px 0 0 -230px;
+            }
+
+            .newUser {
+
+                height: 420px;
+                width: 580px;
+                margin: -220px 0 0 -290px;
+            }
+
+            .remember {
+
+                width: 450px;
+                height: 200px;
+                margin-left: -230px;
+                margin-top: -150px;
+            }
+
+
+            /*--------------------*/
+
+            h1
+            {
+
+                color: #64645D;
+
+                -webkit-transition: all .7s ease-in-out;
+                -moz-transition: all .7s ease-in-out;
+                -o-transition: all .7s ease-in-out;
+                transition: all .7s ease-in-out;
+
+                text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
+                text-transform: uppercase;
+                text-align: center;
+                margin: 0 0 30px 0;
+                letter-spacing: 4px;
+                font: normal 26px/1 Verdana, Helvetica;
+                position: relative;
+
+            }
+
+            h1:after, h1:before
+            {
+                background-color: #9DA0FE;
+                content: "";
+                height: 1px;
+                position: absolute;
+                top: 15px;
+                width: 120px;   
+            }
+
+            h1:after
+            { 
+                background-image: -webkit-gradient(linear, left top, right top, from(#9DA0FE ), to(#fff));
+                background-image: -webkit-linear-gradient(left, #9DA0FE, #fff);
+                background-image: -moz-linear-gradient(left, #9DA0FE, #fff);
+                background-image: -ms-linear-gradient(left, #9DA0FE, #fff);
+                background-image: -o-linear-gradient(left, #9DA0FE, #fff);
+                background-image: linear-gradient(left, #9DA0FE, #fff);      
+                right: 0;
+            }
+
+            h1:before
+            {
+                background-image: -webkit-gradient(linear, right top, left top, from(#9DA0FE), to(#fff));
+                background-image: -webkit-linear-gradient(right, #9DA0FE, #fff);
+                background-image: -moz-linear-gradient(right, #9DA0FE, #fff);
+                background-image: -ms-linear-gradient(right, #9DA0FE, #fff);
+                background-image: -o-linear-gradient(right, #9DA0FE, #fff);
+                background-image: linear-gradient(right, #9DA0FE, #fff);
+                left: 0;
+            }
+            
+            label{
+                text-align: left;
+                color: #999999;
+                padding-left: 5px;
+            }
+
+            /*--------------------*/
+
+            fieldset
+            {
+                border: 0;
+                padding: 0;
+                margin: 0;
+            }
+
+            fieldset .column {
+                width: 47%;
+                float: left;
+            }
+
+            .column div{
+                padding:10px;
+                text-align: left;
+            }
+
+            /*--------------------*/
+
+            #inputs input
+            {
+                background: #F9F9F9  url(http://www.red-team-design.com/wp-content/uploads/2011/09/login-sprite.png) no-repeat;
+                padding: 15px 15px 15px 30px;
+                margin: 0 0 10px 0;
+                width: 353px; /* 353 + 2 + 45 = 400 */
+                border: 1px solid #ccc;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+                -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+                box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+            }
+
+
+            #inputs  #username
+            {
+                background-position: 5px -2px !important;
+            }
+
+            #inputs  #password
+            {
+                background-position: 5px -52px !important;
+            }
+
+            #inputs input:focus
+            {
+                background-color: #fff;
+                /*border-color: #e8c291;*/
+                border-color: rgb(114,129,173);
+                outline: none;
+                -moz-box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+                -webkit-box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+                box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+            }
+
+            #inputsNewUser{
+                text-align: center;
+            }
+            
+            #inputsNewUser input
+            {
+                background: #F9F9F9  url(/arangolibrary.phpfogapp.com/public/Images/layout/statusBig.gif) no-repeat;
+                background-position: 527px 15px !important;
+                /*background-color: #F9F9F9t;*/
+                padding: 15px 15px 15px 10px;
+                margin: 10px 10px 10px 0;
+                width: 253px; /* 353 + 2 + 45 = 400 */
+                border: 1px solid #ccc;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                border-radius: 4px;
+                -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+                -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+                box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+            }
+
+            #inputsNewUser input:focus
+            {
+                background-color: #fff;
+                /*border-color: #e8c291;*/
+                border-color: rgb(114,129,173);
+                outline: none;
+                -moz-box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+                -webkit-box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+                box-shadow: 0 0 0 1px rgb(114,129,173) inset;
+            }
+
+            #inputsNewUser .thinking{
+                background-position: 227px 15px !important;
+            }
+            
+            /*--------------------*/
+            #actions
+            {
+                margin: 25px 0 0 0;
+            }
+
+            #submit
+            {		
+
+                background-image: linear-gradient(bottom, rgb(125,126,158) 2%, rgb(114,129,173) 51%, rgb(161,164,230) 76%);
+                background-image: -o-linear-gradient(bottom, rgb(125,126,158) 2%, rgb(114,129,173) 51%, rgb(161,164,230) 76%);
+                background-image: -moz-linear-gradient(bottom, rgb(125,126,158) 2%, rgb(114,129,173) 51%, rgb(161,164,230) 76%);
+                background-image: -webkit-linear-gradient(bottom, rgb(125,126,158) 2%, rgb(114,129,173) 51%, rgb(161,164,230) 76%);
+                background-image: -ms-linear-gradient(bottom, rgb(125,126,158) 2%, rgb(114,129,173) 51%, rgb(161,164,230) 76%);
+
+                background-image: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.02, rgb(125,126,158)),
+                    color-stop(0.51, rgb(114,129,173)),
+                    color-stop(0.76, rgb(161,164,230))
+                    );
+
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+
+                text-shadow: 0 1px 0 rgba(155,155,155,0.3);
+
+                -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+                -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+
+                border-width: 1px;
+                border-style: solid;
+                /*border-color: #d69e31 #e3a037 #d5982d #e3a037;*/
+                border-color: #AAA #AAA #AAA #AAA;
+
+
+                float: left;
+                height: 35px;
+                padding: 0;
+                width: 120px;
+                cursor: pointer;
+                font: bold 15px Arial, Helvetica;
+                color: #EEE;
+            }
+
+            #submit:hover,#submit:focus
+            {		
+                background-image: linear-gradient(bottom, rgb(161,164,230) 2%, rgb(114,129,173) 51%, rgb(125,126,158) 76%);
+                background-image: -o-linear-gradient(bottom, rgb(161,164,230) 2%, rgb(114,129,173) 51%, rgb(125,126,158) 76%);
+                background-image: -moz-linear-gradient(bottom, rgb(161,164,230) 2%, rgb(114,129,173) 51%, rgb(125,126,158) 76%);
+                background-image: -webkit-linear-gradient(bottom, rgb(161,164,230) 2%, rgb(114,129,173) 51%, rgb(125,126,158) 76%);
+                background-image: -ms-linear-gradient(bottom, rgb(161,164,230) 2%, rgb(114,129,173) 51%, rgb(125,126,158) 76%);
+
+                background-image: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.02, rgb(161,164,230)),
+                    color-stop(0.51, rgb(114,129,173)),
+                    color-stop(0.76, rgb(125,126,158))
+                    );
+
+
+            }	
+
+            #submit:active
+            {		
+                outline: none;
+
+                -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+                -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+            }
+
+            #submit::-moz-focus-inner
+            {
+                border: none;
+            }
+
+            #actions a
+            {
+                color: #3151A2;    
+                float: right;
+                line-height: 35px;
+                margin-left: 10px;
+            }
+
+            /*--------------------*/
+
+            #back
+            {
+                display: block;
+                text-align: center;
+                position: relative;
+                top: 60px;
+                color: #999;
+            }
+
+
+            /*************/
+            /*BODY BORDER*/
+            #top_body_border, #bottom_body_border, #left_body_border, #right_body_border {
+                display: none;
+                z-index: -1;
+            }
+            #left_body_border, #right_body_border {
+                position: fixed;
+                top: 0; bottom: 0;
+                width: 88px;
+            }
+            #left_body_border { left: 0;  background: url(/arangolibrary.phpfogapp.com/public/Images/layout/bodyBorder/left.png) left center repeat-y;}
+            #right_body_border { right: 0; background: url(/arangolibrary.phpfogapp.com/public/Images/layout/bodyBorder/right.png) right center repeat-y;}
+
+            #top_body_border, #bottom_body_border {
+                position: fixed;
+                left: 0; right: 0;
+                height: 88px;
+            }
+            #top_body_border { top: 0px; background: url(/arangolibrary.phpfogapp.com/public/Images/layout/bodyBorder/top.png) top center repeat-x; }
+            #bottom_body_border { bottom: 0px; background: url(/arangolibrary.phpfogapp.com/public/Images/layout/bodyBorder/bottom.png) bottom center repeat-x; }
+            /***********/
+
+
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+
+        <div id="form_wrapper" class="login">
+            <?php echo $this->layout()->content; ?>
+        </div>
+
+        <div id="nextForm" style="display:none;">
+
+        </div>
+
+        <!-- BODY BORDER -->
+        <div class="edge" id="left_body_border"></div>
+        <div class="edge" id="right_body_border"></div>
+        <div class="edge" id="top_body_border"></div>
+        <div class="edge" id="bottom_body_border"></div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                var classTemp = $("#form").attr("class");
+                $("#form").removeClass();
+                $("#form_wrapper").addClass(classTemp);
+                
+            });
+            
+        </script>
+
+
+    </body>
+</html>

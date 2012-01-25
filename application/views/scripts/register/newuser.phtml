@@ -1,0 +1,38 @@
+<form id="form" class="newUser" onsubmit="return login('<?php echo $this->url(array('controller' => 'register', 'action' => 'newuser'), null, true); ?>')">
+    <h1>Registro</h1>
+    <fieldset id="inputsNewUser">
+        <div class="column">
+            <div>
+                <label>Usuario:</label>
+                <input id="username" type="text" placeholder="Usuario" autofocus="" required=""/>
+            </div>
+            <div>
+                <label>Clave:</label>
+                <input id="password" type="password" placeholder="Clave" required=""/>
+            </div>
+            <div>
+                <label>Nombre:</label>
+                <input id="name" type="text" placeholder="Nombre" required=""/>
+            </div>
+        </div>
+        <div class="column">
+            <div>
+                <label>Email:</label>
+                <input id="email" type="email" placeholder="Email" required=""/>
+            </div>
+            <div>
+                <label>Confirma Clave:</label>
+                <input id="confirm_password" type="password" placeholder="Confirma Clave" required=""/>
+            </div>
+            <div>
+                <label>Apellido:</label>
+                <input id="lastname" type="text" placeholder="Apellido" required=""/>
+            </div>
+        </div> 
+
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="Registrarme">
+        <a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'login'), null, true); ?>">Ya tienes una cuenta?, Ingresa aqui</a>
+    </fieldset>
+</form>

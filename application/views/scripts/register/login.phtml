@@ -1,0 +1,11 @@
+<form id="form" class="login" onsubmit="return login('<?php echo $this->url(array('controller' => 'register', 'action' => 'login'), null, true); ?>')">
+    <h1>Arango</h1>
+    <fieldset id="inputs">
+        <input id="username" type="text" placeholder="Usuario" autofocus="" required="">   
+        <input id="password" type="password" placeholder="Password" required="">
+    </fieldset>
+    <fieldset id="actions">
+        <input type="submit" id="submit" value="Entrar">
+        <a href="<?php echo $this->url(array('controller' => 'register', 'action' => 'remeberpassword'), null, true); ?>">Olvidaste tu clave?</a><a id="registerLink" href="<?php echo $this->url(array('controller' => 'register', 'action' => 'newuser'), null, true); ?>">Registrate</a>
+    </fieldset>
+</form>
