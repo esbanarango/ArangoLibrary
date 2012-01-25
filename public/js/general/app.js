@@ -97,7 +97,7 @@ function login(url){
             else{
                 $(".edge").delay(1000).fadeOut("slow",function(){
                     
-                    var urlDone = "http://arangolibrary.phpfogapp.com/";
+                    var urlDone = "http://arangolibrary.phpfogapp.com/public";
                     $(location).attr("href",urlDone);
 
                 });
