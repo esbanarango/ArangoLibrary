@@ -10,7 +10,7 @@ class IndexController extends Zend_Controller_Action
         $idUser = $usuarioLogeado->id;
         
         if($idUser == '')
-            $this->_redirect('register/login');
+            $this->_redirect('/public/register/login');
     }
 
     public function indexAction()
