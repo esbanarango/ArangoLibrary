@@ -4,15 +4,21 @@
         <div class="column">
             <div>
                 <label>Usuario:</label>
-                <input id="username" data-url="<?php echo $this->url(array('controller' => 'register', 'action' => 'checkusername'), null, true); ?>" type="text" placeholder="Usuario" autofocus="" required=""/>
+                <input id="username" data-url="<?php echo $this->url(array('controller' => 'register', 'action' => 'checkusername'), null, true); ?>" type="text" placeholder="Usuario" autofocus="" minlength="5" required=""/>
+                <ul style="display: none;"> 
+                    <li></li>
+                </ul>
             </div>
             <div>
                 <label>Clave:</label>
-                <input id="password" type="password" placeholder="Clave" required=""/>
+                <input id="password" type="password" name="password" placeholder="Clave" required="" minlength="5" />
             </div>
             <div>
-                <label>Nombre:</label>
-                <input id="name" type="text" placeholder="Nombre" required=""/>
+                <label>Confirma Clave:</label>
+                <input id="confirm_password" type="password" placeholder="Confirma Clave" data-equals="password" required=""/>
+                <ul style="display: none;"> 
+                    <li></li>
+                </ul>
             </div>
         </div>
         <div class="column">
@@ -21,8 +27,8 @@
                 <input id="email" type="email" placeholder="Email" required=""/>
             </div>
             <div>
-                <label>Confirma Clave:</label>
-                <input id="confirm_password" type="password" placeholder="Confirma Clave" required=""/>
+                <label>Nombre:</label>
+                <input id="name" type="text" placeholder="Nombre" required=""/>
             </div>
             <div>
                 <label>Apellido:</label>

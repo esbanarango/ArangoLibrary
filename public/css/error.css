@@ -18,32 +18,18 @@
     -webkit-box-shadow: 0 2px 6px rgba(255, 99, 99, 0.7) !important; 
     box-shadow: 0 2px 6px rgba(255, 99, 99, 0.7) !important; 
 
-    background-image: linear-gradient(bottom, rgb(235,162,162) 5%, rgb(245,223,225) 53%, rgb(250,250,250) 77%);
-    background-image: -o-linear-gradient(bottom, rgb(235,162,162) 5%, rgb(245,223,225) 53%, rgb(250,250,250) 77%);
-    background-image: -moz-linear-gradient(bottom, rgb(235,162,162) 5%, rgb(245,223,225) 53%, rgb(250,250,250) 77%);
-    background-image: -webkit-linear-gradient(bottom, rgb(235,162,162) 5%, rgb(245,223,225) 53%, rgb(250,250,250) 77%);
-    background-image: -ms-linear-gradient(bottom, rgb(235,162,162) 5%, rgb(245,223,225) 53%, rgb(250,250,250) 77%);
-
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.05, rgb(235,162,162)),
-        color-stop(0.53, rgb(245,223,225)),
-        color-stop(0.77, rgb(250,250,250))
-        );
-    -moz-border-radius : 5px;
-    -webkit-border-radius : 5px;
-    -o-border-radius : 5px;
-    border-radius : 5px;
-
 }
 
-.erroAlert
+.errorAlert
 {
+    position: absolute;
+    display: block !important;
     color: #C2504F;
     list-style: circle;
-    margin-left: 40px;
+    margin: 0;
+    padding: 0;
+    padding-left: 25px;
+    font-size: 10px;
 
 }
 

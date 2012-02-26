@@ -22,14 +22,15 @@ class RegisterController extends Zend_Controller_Action {
             $this->_helper->layout->disableLayout();
             $this->_helper->viewRenderer->setNoRender(true);
 
-            $user = $this->view->funciones()->clean_post($this->getRequest()->getParam('name'));
+            $user = $this->view->funciones()->clean_post($this->getRequest()->getParam('username'));
             $pass = md5($this->view->funciones()->clean_post($this->getRequest()->getParam('password')));
 
             $userModel = new Application_Model_User();
             $login = $userModel->checkLogin($user, $pass);
 
             if (count($login) == 1) {
-                $userModel->updateVisit($login->idUser);
+                
+                $userModel->updateVisit($login->idUser); // Last visit
 
                 $personModel = new Application_Model_Person();
                 $person = $personModel->getInfo($login->idUser);
@@ -77,16 +78,18 @@ class RegisterController extends Zend_Controller_Action {
             $name = $this->view->funciones()->clean_post($this->getRequest()->getParam('name'));
             $lastname = $this->view->funciones()->clean_post($this->getRequest()->getParam('lastname'));
             
-            $pesonModel = new Application_Model_Person();
+            $personModel = new Application_Model_Person();
+            $userModel = new Application_Model_User();
             
-            $data = array(
-                'name'      => $name,
-                'last_name' => $lastname,
-                'email'      => $email
-            );
+            $idPerson = $personModel->newPerson($name, $lastname, $email);         
+            $userId = $userModel->newUser($idPerson, $username, $password);
             
-             $userId = $pesonModel->insert($data);
-             echo 'bien|-estado-|' . "Bien" . $userId;
+            if($userId == $idPerson){
+                echo 'bien|-estado-|' . "Bien";
+            }else{
+                echo 'mal|-estado-|' . "Error en el servidor";
+            }
+             
              
         }else if($this->getRequest()->getParam('view') == "view"){
             $this->_helper->layout->disableLayout();
@@ -107,6 +110,22 @@ class RegisterController extends Zend_Controller_Action {
             $this->_helper->layout->setLayout('login-layout');
         }
     }
+    
+    public function checkusernameAction() {
+        $this->_helper->getHelper("Layout")->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        $username = $this->getRequest()->getParam('username');
+        
+        $userModel = new Application_Model_User();
+        $userRow = $userModel->checkUsername($username);
+        
+        if (count($userRow) == 1){
+            echo 'mal|-estado-|' . "Nombre de usuario ya existente";
+        }else{
+            echo 'bien|-estado-|' . "Bien";
+        }
+    }
+    
 
 }
 
