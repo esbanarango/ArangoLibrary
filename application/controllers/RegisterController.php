@@ -42,6 +42,7 @@ class RegisterController extends Zend_Controller_Action {
                 $userLog->nombre = $person->name;
                 $userLog->apellido = $person->last_name;
                 $userLog->email = $person->email;
+                
             } else {
 
                 echo 'mal|-estado-|' . "Mal" . $pass . $login;
@@ -63,13 +64,30 @@ class RegisterController extends Zend_Controller_Action {
         $this->_redirect(''); //no funciona
     }
 
-    public function newuserAction() {
+    public function newAction() {
 
         if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('view') != "view")) {
             
+            $this->_helper->layout->disableLayout();
+            $this->_helper->viewRenderer->setNoRender(true);
             
+            $username = $this->view->funciones()->clean_post($this->getRequest()->getParam('username'));
+            $password = md5($this->view->funciones()->clean_post($this->getRequest()->getParam('password')));
+            $email = $this->view->funciones()->clean_post($this->getRequest()->getParam('email'));
+            $name = $this->view->funciones()->clean_post($this->getRequest()->getParam('name'));
+            $lastname = $this->view->funciones()->clean_post($this->getRequest()->getParam('lastname'));
             
+            $pesonModel = new Application_Model_Person();
             
+            $data = array(
+                'name'      => $name,
+                'last_name' => $lastname,
+                'email'      => $email
+            );
+            
+             $userId = $pesonModel->insert($data);
+             echo 'bien|-estado-|' . "Bien" . $userId;
+             
         }else if($this->getRequest()->getParam('view') == "view"){
             $this->_helper->layout->disableLayout();
         }else {
@@ -81,10 +99,7 @@ class RegisterController extends Zend_Controller_Action {
     public function remeberpasswordAction() {
 
         if ($this->getRequest()->isPost() && ($this->getRequest()->getParam('view') != "view")) {
-            
-            
-            
-            
+
         }else if($this->getRequest()->getParam('view') == "view"){
             $this->_helper->layout->disableLayout();
         }else {

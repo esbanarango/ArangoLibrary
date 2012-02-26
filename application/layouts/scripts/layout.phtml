@@ -3,24 +3,23 @@
     <head>
         <?php echo $this->headTitle(); ?>
         <?php echo $this->headMeta(); ?>
-
         <?php
-        echo $this->headLink()->appendStylesheet($this->baseUrl('css/fonts.css'))
-                ->appendStylesheet($this->baseUrl('css/stylesheet.css'))
-                ->appendStylesheet($this->baseUrl('css/jackedup.css'))
-                ->appendStylesheet($this->baseUrl('css/chosen.css'));
-        ?>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <?php
-        echo $this->headScript()->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
+        echo $this->headScript()->appendFile($this->baseUrl('js/resources/jquery-1.7.1.min.js'))
+                ->appendFile($this->baseUrl('js/resources/jquery.tools.min.js'))
                 ->appendFile($this->baseUrl('js/resources/chosen.jquery.min.js'))
                 ->appendFile($this->baseUrl('js/resources/jquery.form.js'))
-                ->appendFile($this->baseUrl('js/resources/humane.min.js'))
+                ->appendFile($this->baseUrl('js/resources/jquery.noty.js'))
                 ->appendFile($this->baseUrl('js/general/cargar_contenido.js'))
                 ->appendFile($this->baseUrl('js/general/funciones.js'))
                 ->appendFile($this->baseUrl('js/general/app.js'));
         ?>
-
+        <?php
+        echo $this->headLink()->appendStylesheet($this->baseUrl('css/fonts.css'))
+                ->appendStylesheet($this->baseUrl('css/error.css'))  
+                ->appendStylesheet($this->baseUrl('css/stylesheet.css'))
+                ->appendStylesheet($this->baseUrl('css/jquery.noty.css'))
+                ->appendStylesheet($this->baseUrl('css/chosen.css'));
+        ?>
         <link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'/>
     </head>
     <body>

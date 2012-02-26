@@ -11,7 +11,6 @@ class Application_Model_Person extends Zend_Db_Table_Abstract
                     ->where('idUser = ?',$idUser);
             return $row = $this->fetchRow($select);
         }
-
         
 }
 ?>

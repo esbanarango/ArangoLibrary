@@ -27,3 +27,19 @@ function parseScript(_source) {
             // Return the cleaned source
             return source;
 }
+
+//Beautyfull alerts with noty! :) http://needim.github.com/noty/
+function logAlert(text,layOut,type,timeOut){
+    
+    noty({"text":text,
+        "layout":layOut,
+        "type":type,
+        "textAlign":"center",
+        "easing":"swing",
+        "animateOpen":{"height":"toggle"},
+        "animateClose":{"height":"toggle"},
+        "speed":"500",
+        "timeout":timeOut,
+        "closable":false,"closeOnSelfClick":false});
+    
+}
