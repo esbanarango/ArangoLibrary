@@ -1,6 +1,6 @@
 /* 
     Document   : stylesheet
-    Created on : 29-oct-2010, 13:39:18
+    Created on : 29-oct-2011, 13:39:18
     Author     : Arango
     Description:
         Purpose of the stylesheet follows.
@@ -197,8 +197,8 @@ body {
     margin: 0 auto;
     text-align: center;
     color: #9DA0FE;
-    font-family: 'Podkova', serif;
-    font-size: 15px;
+    font-family: serif;
+    font-size: 13px;
 }
 
 /*********** COMUN ***********/
@@ -228,7 +228,6 @@ body {
     margin: 0 auto;
     position: relative;
     width: 920px;
-    height: 500px;
     z-index: 1;
     padding-left: 20px;
 }
@@ -275,8 +274,8 @@ body {
 .titulo_centro label
 {
     color: #9DA0FE;
-    font-family: 'Podkova', serif;
-    font-size: 30px;
+    font-family: 'Droid Serif', serif;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -328,7 +327,7 @@ form input:focus
 /*--------------------*/
 #actions
 {
-    margin: 25px 0 0 0;
+    margin: 5px 0 0 0;
 }
 
 #submit
@@ -420,7 +419,17 @@ form input:focus
 
 /*--------------------*/
 
+/*********** Index *************/
+.section_index{
+    height:400px;
+}
+
+
 /*********** Authors ***********/
+
+.section_author{
+    height:600px;
+}
 
 .container_form_data
 {
@@ -435,6 +444,15 @@ form input:focus
 
 .form_auth_left{
     float: left;
+}
+
+.form_auth_left label{
+    color: #999999;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    text-align: left;
+    display: block;
 }
 
 .form_auth_right{
@@ -500,7 +518,7 @@ form input:focus
     border: 1px dashed #9DA0FE;
 
     height: 137px;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
     width: 140px;
 }
@@ -511,10 +529,11 @@ form input:focus
     padding-bottom: 10px;
 }
 
-.information_form article
+.information_form label
 {
+    font-size: 14px;
     color: #64645d;
-    font-family: 'Podkova', helvetica, serif;
+    font-family: 'Droid Sans', helvetica, serif;
 }
 
 
@@ -530,10 +549,10 @@ form input:focus
 
 .authosList
 {
-    height: 357px;
+    height: 450px;
     padding-left: 9px;
     text-align: left;
-    width: 380px;
+    width: 250px;
     background-color: rgba(255, 255, 255, 0.9);
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
@@ -541,8 +560,25 @@ form input:focus
 
 }
 
+.authosList article{
+    padding-top: 10px;
+    border-bottom: 1px dashed #cccccc;
+
+}
+.authosList article aside{
+    font-size: 11px;
+    color: #cccccc;
+
+}
+.authosList article p{
+    font-size: 12px;
+    color: #999999;
+
+}
+
+
 .gallitoCorners{
-    background: rgba(116, 145, 148, 0.9);
+    background: rgba(171, 192, 188, 0.9);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -551,8 +587,7 @@ form input:focus
     text-shadow: 0 1px 0 #ffffff;
     line-height: 1.7em;
     text-align: center;
-    display: block;
-
+    display: block; 
 }
 
 .gallitoCorners li{

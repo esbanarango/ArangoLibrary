@@ -4,36 +4,41 @@
 <div class="clear"></div>
 <div class="container_form">
     <div class="information_form">
-        <article>
+        <label>
             Información para el ingreso de un nuevo autor.
-        </article>
+        </label>
     </div>
     <div class="container_form_data">
-        <form name="newAuthorForm" action="" onsubmit="return newAuthor('<?php echo $this->url(array('controller' => 'register', 'action' => 'newauthorget'), null, true); ?>')">
+        <form id="newAuthorForm" name="newAuthorForm" action="" onsubmit="return newAuthor('<?php echo $this->url(array('controller' => 'author', 'action' => 'create'), null, true); ?>')">
             <div class="form_auth_left">
                 <table cellpadding="1px" cellspacing="10px"  style="padding-left: 5px;">
                     <tr>
                         <td>
-                            <input type="text" id="name" required style="width: 190px;" placeholder="Nombre" />
+                            <label>Nombre:</label>
+                            <input type="text" id="name" name="name"  style="width: 190px;" placeholder="Nombre" />
                         </td>
                         <td>
-                            <input type="text" id="last_name" required style="width: 190px;" placeholder="Apellido" />
+                            <label>Apellido:</label>
+                            <input type="text" id="last_name" name="last_name" required style="width: 190px;" placeholder="Apellido" />
                         </td>
                     </tr>
 
                     <tr>
                         <td colspan="2">
-                            <textarea id="bio" style="padding-top: 10px; width: 400px; height: 90px;" placeholder="Biografía"></textarea>
+                            <label>Biografía:</label>
+                            <textarea id="bio" name="bio" style="padding-top: 10px; width: 400px; height: 90px;" placeholder="Biografía"></textarea>
                         </td>
 
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <textarea id="edu" id="education" style="padding-top: 10px; width: 400px; height: 70px;" placeholder="Education"></textarea>
+                            <label>Educación:</label>
+                            <textarea id="edu" name="edu" style="padding-top: 10px; width: 400px; height: 70px;" placeholder="Educación"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td  colspan="3" style="width: 150px;">
+                            <label>Lugar de nacimiento:</label>
                             <div style="width: 400px;">
                                 <div id="div_pais" style="float: left; padding-right: 5px;">
                                     <select data-placeholder="Pais" id="pais" name="Pais" class="select">
@@ -56,6 +61,7 @@
                     </tr>
                     <tr>
                         <td  colspan="3" style="width: 150px;">
+                            <label>Nacimiento:</label>
                             <div id="pickerDate" style="width: 400px;">
                             </div>
                         </td>
@@ -84,33 +90,31 @@
         <div class="clear"></div>
 
     </div>
-    <!--
+    
     <div id="listAuthors" class="auth_section_right">
         <section class="gallitoCorners">
             <div class="authosList">
-                <ul>
-                    <li>
-                        <label>Nombre:</label>afasdfasdf
-                    </li>
-                    <li>
-                        <label>País:</label>asfsadfsadf
-                    </li>
-                    <li>
-                        <label>Títulos:</label>asdfsdfsadf
-                    </li>
-                </ul>
+                <article>
+                    <header>Gabriel García Márques</header>
+                    <aside>(Aracataca, Colombia, 6 de marzo de 1927)</aside>
+                    <p>Escritor, novelista, cuentista, guionista y periodista colombiano.
+                       En 1982 recibió el Premio Nobel de Literatura. 
+                       Conocido familiarmente y por sus amigos como Gabito (hipocorístico guajiro para Gabriel).</p>
+                </article>
             </div>
 
         </section>
 
     </div>
-    -->
+    
 
     <script type="text/javascript" >
             
-        $(document).ready(function()
-        {
-            $("#pickerDate").birthdaypicker({});
+        $(function() {
+            //Adding
+            $(".section").addClass("section_author");
+            
+            $("#pickerDate").birthdaypicker({dateFormat:"bigEndian"});
             $("select").chosen();
             
             //Fixing the style

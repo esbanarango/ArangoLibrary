@@ -1,5 +1,7 @@
 $(document).ready(function() {
     
+    //$( document ).on( "click", ".nav_top li a", function( e ) { $(".")    } );
+    
     $(".uploadButtom").click(function(){
         //$('#photoimg').click();
         });  
@@ -11,18 +13,9 @@ function newAuthor(urlAction)
     if(!validationNewAuthor()){
         return false;
     }
-    
-    
     var cadenaFormulario = "";
     var sepCampos="&";
-    cadenaFormulario += sepCampos+'name='+$("#name").val();
-    cadenaFormulario += sepCampos+'last_name='+$("#last_name").val();
-    cadenaFormulario += sepCampos+'bio='+$("#bio").val();
-    cadenaFormulario += sepCampos+'edu='+$("#edu").val();
-    cadenaFormulario += sepCampos+'pais='+$("#pais").val();
-    cadenaFormulario += sepCampos+'estado='+$("#estado").val();
-    cadenaFormulario += sepCampos+'ciudad='+$("#ciudad").val();
-
+    cadenaFormulario += $("#newAuthorForm").serialize();
 
     $.ajax({
         type: "POST",
@@ -37,7 +30,9 @@ function newAuthor(urlAction)
             }
             else
             {
-                alert("Bien "+respuesta[1]);
+                alert(respuesta[1]);
+                clear_form_elements("#newAuthorForm");  
+                $("#pais").val(0);
             }  
         }
     });
@@ -50,19 +45,38 @@ function newAuthor(urlAction)
 function validationNewAuthor(){
     
     if($("#name").val() == ""){
-        $("#name").addClass("errorInput");       
+        $("#name").addClass("errorInput").focus();       
         return false;
     }else if($("#last_name").val() == ""){
-        $("#last_name").addClass("errorInput");
+        $("#last_name").addClass("errorInput").focus();
         return false;
     }else if($("#estado").val() == null){
-        $("#estado_chzn").addClass("errorInput");
+        $("#estado_chzn").addClass("errorInput").focus();
         return false;
     }else if($("#ciudad").val() == null){
-        $("#ciudad_chzn").addClass("errorInput");
+        $("#ciudad_chzn").addClass("errorInput").focus();
         return false;
     }
     
     return true;
     
+}
+
+function clear_form_elements(ele) {
+
+    $(ele).find(':input').each(function() {
+        switch(this.type) {
+            case 'password':
+            case 'select-multiple':
+            case 'select-one':
+            case 'text':
+            case 'textarea':
+                $(this).val('');
+                break;
+            case 'checkbox':
+            case 'radio':
+                this.checked = false;
+        }
+    });
+
 }

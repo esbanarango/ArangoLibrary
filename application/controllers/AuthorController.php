@@ -20,7 +20,7 @@ class AuthorController extends Zend_Controller_Action {
         
     }
 
-    public function newauthorgetAction() {
+    public function createAction() {
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender(true);
         
@@ -28,17 +28,13 @@ class AuthorController extends Zend_Controller_Action {
         $last_name = $this->view->funciones()->clean_post($this->getRequest()->getParam('last_name'));
         $bio = $this->view->funciones()->clean_post($this->getRequest()->getParam('bio'));
         $education = $this->view->funciones()->clean_post($this->getRequest()->getParam('edu'));
-        $city = $this->view->funciones()->clean_post($this->getRequest()->getParam('ciudad'));
-        
-        $country = $this->view->funciones()->clean_post($this->getRequest()->getParam('pais'));
-        $state = $this->view->funciones()->clean_post($this->getRequest()->getParam('estado'));
-        
+        $city = $this->view->funciones()->clean_post($this->getRequest()->getParam('Ciudad'));
+        $country = $this->view->funciones()->clean_post($this->getRequest()->getParam('Pais'));
+        $state = $this->view->funciones()->clean_post($this->getRequest()->getParam('Estado'));
+        $birth_date = $this->view->funciones()->clean_post($this->getRequest()->getParam('birthdate'));
         $null = new Zend_Db_Expr("NULL");
-
-        
         $authorModel = new Application_Model_Author();
-        
-        $idAuthor = $authorModel->addAuthor($city, $null, $name, $last_name, $null, $null, $bio, $education);
+        $idAuthor = $authorModel->save($city, $null, $name, $last_name, $birth_date, $null, $bio, $education);
         
         if ($idAuthor) {
             echo 'bien|-estado-|'.'Autor insertado correctamente'.$idAuthor;
